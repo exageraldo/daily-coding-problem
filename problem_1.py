@@ -10,9 +10,17 @@ import unittest
 
 
 def sum_two_items(list_, k):
-    all_possib = combinations(list_, 2)
+    all_possib = combinations(list_, 2) # exponential
     for possib in all_possib:
         if sum(possib) == k:
+            return True
+    return False
+
+
+def sum_two_items_opt(list_, k): # One pass
+    for item in set(list_): # linear
+        value = k - item
+        if value in list_:
             return True
     return False
 
@@ -23,6 +31,9 @@ class Tests(unittest.TestCase):
         k = 17
         self.assertTrue(
             sum_two_items(list_, 17)
+        )
+        self.assertTrue(
+            sum_two_items_opt(list_, 17)
         )
 
 if __name__ == '__main__':
