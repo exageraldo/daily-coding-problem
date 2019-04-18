@@ -9,21 +9,21 @@ from functools import reduce
 
 
 def list_product_with_division(list_):
-	aux_list = []
-	prod = reduce((lambda x, y: x * y), list_)
-	for num in list_:
-		aux_list.append(prod//num)
-	return aux_list
+    aux_list = []
+    prod = reduce((lambda x, y: x * y), list_)
+    for num in list_:
+        aux_list.append(prod//num)
+    return aux_list
 
 
 def list_product_without_division(list_):
-	result = []
-	for num in range(len(list_)):
-		aux_list = list_[::]
-		aux_list.pop(num)
-		prod = reduce((lambda x, y: x * y), aux_list)
-		result.append(prod)
-	return result
+    result = []
+    for num in range(len(list_)):
+        aux_list = list_[::]
+        aux_list.pop(num)
+        prod = reduce((lambda x, y: x * y), aux_list)
+        result.append(prod)
+    return result
 
 
 class Tests(unittest.TestCase):
